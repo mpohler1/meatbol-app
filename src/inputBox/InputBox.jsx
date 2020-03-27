@@ -12,6 +12,8 @@ class InputBox extends Component {
                               rows="32"
                               cols="80"
                               value={this.props.input}
+                              onKeyDown={this.props.onKeyDown}
+                              onKeyUp={this.props.onKeyUp}
                               onChange={this.props.onInputTextChange}>
                     </textarea>
                 </div>
