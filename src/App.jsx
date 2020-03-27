@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import InputBox from "./inputBox/InputBox";
 import OutputBox from "./outputBox/OutputBox";
 import 'bootstrap/dist/css/bootstrap.css';
+import WebServerService from "./service/WebServerService";
 
 class App extends Component {
 
@@ -15,7 +16,7 @@ class App extends Component {
     }
 
     handleInterpretButton() {
-        // console.log(this.state.input)
+        WebServerService.interpretText(this.state.input, (output) => this.setState({output: output}))
     }
 
     render() {
