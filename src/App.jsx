@@ -57,22 +57,40 @@ class App extends Component {
 
     performShiftTab(input, start, end) {
         // Align begining of selection to either start of text area or the start of a line
+        let startOffset = 0;
         while(start > 0 && input[start] !== "\n") {
             start--;
+            startOffset++;
         }
 
-        // remove \t at the start of any line within the selection
+        // remove \t or ' ' at the start of any line within the selection
         let subInputArray = input.substring(start, end).split("\n");
+        let numCharsRemoved = 0;
         for (let i = 0; i < subInputArray.length; i++) {
-            if (subInputArray[i].startsWith("\t")) {
+            if (subInputArray[i].startsWith("\t") || subInputArray[i].startsWith(" ")) {
+
                 subInputArray[i] = subInputArray[i].substring(1, subInputArray[i].length);
+                numCharsRemoved++;
+
+                // adjust offset when a tab is removed from the first line
+                if (i === 0) {
+                    startOffset--;
+                }
             }
         }
         const subInput = subInputArray.join("\n");
 
         // make the input with the modified selection and save it to state
         input = input.substring(0, start) + subInput + input.substring(end, input.length);
-        this.setState({input: input});
+
+        // set start and end to appropriate values for cursor
+        start += startOffset;
+        end -= numCharsRemoved;
+
+        this.setState({input: input}, () => {
+            let textArea = document.getElementById("inputBoxTextArea");
+            textArea.setSelectionRange(start, end);
+        });
     }
 
     performTab(input, start, end) {
