@@ -6,7 +6,12 @@ class OutputBox extends Component {
         return (
             <div className="form-group">
                 <label htmlFor="outputBoxTextArea">Output</label>
-                <textarea readOnly={true} className="form-control text-monospace overflow-auto" id="outputBoxTextArea" rows="32" cols="80"></textarea>
+                <textarea className="form-control text-monospace overflow-auto"
+                          id="outputBoxTextArea"
+                          rows="32"
+                          cols="80"
+                          readOnly={true} >
+                </textarea>
             </div>
         );
     }
