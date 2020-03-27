@@ -95,16 +95,55 @@ class App extends Component {
 
     performTab(input, start, end) {
         if (end - start > 1) {
-
+            this.performSelectionTab(input, start, end);
         } else {
-            input = input.substring(0, start) + "\t" + input.substring(end, input.length);
-
-            // callback corrects cursor position after standard tab
-            this.setState({input: input}, () => {
-                let textArea = document.getElementById("inputBoxTextArea");
-                textArea.setSelectionRange(start+1, end+1);
-            });
+            this.performSingleTab(input, start, end);
         }
+    }
+
+    performSelectionTab(input, start, end) {
+        // Align begining of selection to either start of text area or the start of a line
+        let startOffset = 0;
+        while(start > 0 && input[start] !== "\n") {
+            start--;
+            startOffset++;
+        }
+
+        // add \t at the start of any line within the selection
+        let subInputArray = input.substring(start, end).split("\n");
+        let numCharsAdded = 0;
+        for (let i = 0; i < subInputArray.length; i++) {
+            subInputArray[i] = "\t" + subInputArray[i];
+            numCharsAdded++;
+
+            // adjust offset when a tab is added to the first line
+            if (i === 0) {
+                startOffset++;
+            }
+        }
+        const subInput = subInputArray.join("\n");
+
+        // make the input with the modified selection and save it to state
+        input = input.substring(0, start) + subInput + input.substring(end, input.length);
+
+        // set start and end to appropriate values for cursor
+        start += startOffset;
+        end += numCharsAdded;
+
+        this.setState({input: input}, () => {
+            let textArea = document.getElementById("inputBoxTextArea");
+            textArea.setSelectionRange(start, end);
+        });
+    }
+
+    performSingleTab(input, start, end) {
+        input = input.substring(0, start) + "\t" + input.substring(end, input.length);
+
+        // callback corrects cursor position after standard tab
+        this.setState({input: input}, () => {
+            let textArea = document.getElementById("inputBoxTextArea");
+            textArea.setSelectionRange(start+1, end+1);
+        });
     }
 
     render() {
