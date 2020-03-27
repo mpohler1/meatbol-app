@@ -7,12 +7,17 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col">
+            <div className="container-fluid">
+                <div className="row m-1">
+                    <div className="col-12 m-1">
+                        <h1 className="h1" >Meatbol Interpreter</h1>
+                    </div>
+                </div>
+                <div className="row m-1">
+                    <div className="col-lg m-1">
                         <InputBox/>
                     </div>
-                    <div className="col">
+                    <div className="col-lg m-1">
                         <OutputBox/>
                     </div>
                 </div>

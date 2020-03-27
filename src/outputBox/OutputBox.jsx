@@ -4,7 +4,10 @@ class OutputBox extends Component {
 
     render() {
         return (
-            <p>Hello World!</p>
+            <div className="form-group">
+                <label htmlFor="outputBoxTextArea">Output</label>
+                <textarea readOnly={true} className="form-control text-monospace overflow-auto" id="outputBoxTextArea" rows="32" cols="80"></textarea>
+            </div>
         );
     }
 }
