@@ -10,11 +10,13 @@ class InputBox extends Component {
                     <textarea className="form-control text-monospace overflow-auto"
                               id="inputBoxTextArea"
                               rows="32"
-                              cols="80">
-
+                              cols="80"
+                              value={this.props.input}
+                              onChange={this.props.onInputTextChange}>
                     </textarea>
                 </div>
-                <button className="btn btn-primary">Interpret</button>
+                <button className="btn btn-primary"
+                        onClick={this.props.onInterpretButton}>Interpret</button>
             </React.Fragment>
         );
     }

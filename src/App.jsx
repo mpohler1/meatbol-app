@@ -5,6 +5,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
 
+    state = {
+        input: "",
+        output: ""
+    };
+
+    handleInputTextChange(event) {
+        this.setState({ input: event.target.value});
+    }
+
+    handleInterpretButton() {
+        // console.log(this.state.input)
+    }
+
     render() {
         return (
             <div className="container-fluid">
@@ -15,10 +28,12 @@ class App extends Component {
                 </div>
                 <div className="row m-1">
                     <div className="col-lg m-1">
-                        <InputBox/>
+                        <InputBox input={this.state.input}
+                                  onInputTextChange={(event) => this.handleInputTextChange(event)}
+                                  onInterpretButton={() => this.handleInterpretButton()}/>
                     </div>
                     <div className="col-lg m-1">
-                        <OutputBox/>
+                        <OutputBox output={this.state.output}/>
                     </div>
                 </div>
             </div>

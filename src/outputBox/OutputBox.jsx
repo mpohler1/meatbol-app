@@ -10,6 +10,7 @@ class OutputBox extends Component {
                           id="outputBoxTextArea"
                           rows="32"
                           cols="80"
+                          value={this.props.output}
                           readOnly={true} >
                 </textarea>
             </div>
