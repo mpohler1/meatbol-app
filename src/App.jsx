@@ -57,10 +57,8 @@ class App extends Component {
 
     performShiftTab(input, start, end) {
         // Align begining of selection to either start of text area or the start of a line
-        if (input.substring(0, start).includes("\n")) {
-            while(start > 0 && input[start] !== "\n") {
-                start--;
-            }
+        while(start > 0 && input[start] !== "\n") {
+            start--;
         }
 
         // remove \t at the start of any line within the selection
