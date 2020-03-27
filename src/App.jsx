@@ -80,8 +80,13 @@ class App extends Component {
 
         } else {
             input = input.substring(0, start) + "\t" + input.substring(end, input.length);
+
+            // callback corrects cursor position after standard tab
+            this.setState({input: input}, () => {
+                let textArea = document.getElementById("inputBoxTextArea");
+                textArea.setSelectionRange(start+1, end+1);
+            });
         }
-        this.setState({input: input});
     }
 
     render() {
