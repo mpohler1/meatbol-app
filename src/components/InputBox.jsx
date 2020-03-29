@@ -19,7 +19,7 @@ class InputBox extends Component {
                 if (this.props.shiftHeld) {
                     this.performShiftTab(event);
                 }
-                else if (event.target.selectionEnd - event.target.selectionStart > 1) {
+                else if (event.target.selectionEnd - event.target.selectionStart > 0) {
                     this.performSelectionTab(event);
                 } else {
                     this.performSingleTab(event);
