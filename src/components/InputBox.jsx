@@ -47,11 +47,10 @@ class InputBox extends Component {
     };
 
     render() {
-        // console.log(this.props);
         return (
             <div className="form-group">
                 <label htmlFor="inputBoxTextArea">Meatbol Code</label>
-                <textarea className="form-control text-monospace overflow-auto"
+                <textarea className="form-control text-monospace text-nowrap overflow-auto"
                           id={"inputBoxTextArea" /* needs to be stored in state if multiple of these */}
                           rows="32"
                           cols="80"
