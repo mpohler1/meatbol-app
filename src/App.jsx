@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import InputBox from "./inputBox/InputBox";
-import OutputBox from "./outputBox/OutputBox";
+import InputBox from "./components/InputBox";
+import OutputBox from "./components/OutputBox";
 import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {

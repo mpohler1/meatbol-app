@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {inputTextChange, setShiftHeld} from "../redux/actions";
+import {inputTextChange, setShiftHeld} from "../actions/actions";
 
 class InputBox extends Component {
 

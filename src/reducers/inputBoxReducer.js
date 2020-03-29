@@ -1,4 +1,4 @@
-import {INPUT_TEXT_CHANGE, SET_SHIFT_HELD} from "../actionTypes";
+import {INPUT_TEXT_CHANGE, SET_SHIFT_HELD} from "../actions/actionTypes";
 
 function inputBoxReducer(state = {}, action) {
     switch (action.type) {
