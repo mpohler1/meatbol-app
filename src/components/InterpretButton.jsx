@@ -32,4 +32,8 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { interpretRequest, interpretSuccess, interpretError })(InterpretButton);
+export default connect(mapStateToProps, {
+    interpretRequest,
+    interpretSuccess,
+    interpretError
+})(InterpretButton);
