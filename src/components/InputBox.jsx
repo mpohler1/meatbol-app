@@ -60,9 +60,8 @@ class InputBox extends Component {
         return (
             <div className="form-group">
                 <label htmlFor="inputBoxTextArea">Meatbol Code</label>
-                <textarea className="form-control text-monospace overflow-auto"
+                <textarea className="form-control text-monospace overflow-auto console"
                           id={"inputBoxTextArea" /* needs to be stored in state if multiple of these */}
-                          rows="32"
                           cols="80"
                           value={this.props.input}
                           onKeyDown={(event) => this.handleKeyDown(event)}

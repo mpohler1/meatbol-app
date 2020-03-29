@@ -3,6 +3,7 @@ import InputBox from "./components/InputBox";
 import OutputBox from "./components/OutputBox";
 import 'bootstrap/dist/css/bootstrap.css';
 import InterpretButton from "./components/InterpretButton";
+import './App.css';
 
 class App extends Component {
 

@@ -7,9 +7,8 @@ class OutputBox extends Component {
         return (
             <div className="form-group">
                 <label htmlFor="outputBoxTextArea">Output</label>
-                <textarea className="form-control text-monospace overflow-auto"
+                <textarea className="form-control text-monospace overflow-auto console"
                           id="outputBoxTextArea"
-                          rows="32"
                           cols="80"
                           value={this.props.output}
                           readOnly={true} >

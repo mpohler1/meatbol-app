@@ -1,0 +1,11 @@
+/* non-desktop */
+.console {
+    min-height: calc(85vh - 180px);
+}
+
+/* desktop */
+@media screen and (min-width: 640px) {
+    .console {
+        min-height: calc(100vh - 180px);
+    }
+}
