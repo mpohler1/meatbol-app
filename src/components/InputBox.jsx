@@ -63,11 +63,11 @@ class InputBox extends Component {
                 <textarea className="form-control text-monospace overflow-auto console"
                           id={"inputBoxTextArea" /* needs to be stored in state if multiple of these */}
                           cols="80"
+                          wrap="off"
                           value={this.props.input}
                           onKeyDown={(event) => this.handleKeyDown(event)}
                           onKeyUp={(event) => this.handleKeyUp(event)}
-                          onChange={(event) => this.handleInputTextChange(event)}>
-                </textarea>
+                          onChange={(event) => this.handleInputTextChange(event)}/>
             </div>
         );
     }
@@ -140,7 +140,7 @@ class InputBox extends Component {
     }
 
     alignSelectionToStartOfLine(input, selectionStart) {
-        while(selectionStart > 0 && input[selectionStart] !== "\n") {
+        while(selectionStart > 0 && input[selectionStart-1] !== "\n") {
             selectionStart--;
         }
 
