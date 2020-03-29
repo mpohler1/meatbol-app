@@ -17,7 +17,7 @@ class InputBox extends Component {
             case 9:
                 event.preventDefault();
                 if (this.props.shiftHeld) {
-                    // this.performShiftTab(input, start, end);
+                    this.performShiftTab(event);
                 }
                 else if (event.target.selectionEnd - event.target.selectionStart > 1) {
                     this.performSelectionTab(event);
@@ -27,7 +27,11 @@ class InputBox extends Component {
                 break;
 
             case 16:
-                this.props.setShiftHeld(true);
+                this.props.setShiftHeld(
+                    true,
+                    event.target.selectionStart,
+                    event.target.selectionEnd
+                );
                 break;
 
             default:
@@ -37,7 +41,11 @@ class InputBox extends Component {
 
     handleKeyUp(event) {
         if (event.keyCode === 16) {
-            this.props.setShiftHeld(false);
+            this.props.setShiftHeld(
+                false,
+                event.target.selectionStart,
+                event.target.selectionEnd
+            );
         }
     }
 
@@ -92,7 +100,34 @@ class InputBox extends Component {
         const block = this.addTabsToEveryLineInBlock(originalBlock);
 
         // set start and end to appropriate values for cursor
-        selectionStart += (block.length - originalBlock.length) / this.countNumberOfLinesInBlock(block);
+        selectionStart += this.differenceInLengthBetweenFirstLineOfEachBlock(originalBlock, block);
+        selectionEnd += block.length - originalBlock.length;
+
+        // make the input with the modified block and save it to state
+        input = input.substring(0, blockStart) + block + input.substring(blockEnd, input.length);
+
+        this.props.inputTextChange(
+            input,
+            selectionStart,
+            selectionEnd
+        );
+    }
+
+    performShiftTab(event) {
+        let input = event.target.value;
+        let selectionStart = event.target.selectionStart;
+        let selectionEnd = event.target.selectionEnd;
+
+        // define the block and it's boundaries
+        const blockStart = this.alignSelectionToStartOfLine(input, selectionStart);
+        const blockEnd = selectionEnd;
+        const originalBlock = input.substring(blockStart, blockEnd);
+
+        // create a new block with \t removed from the start of any line within it
+        const block = this.removeTabsFromEveryLineInBlock(originalBlock);
+
+        // set start and end to appropriate values for cursor
+        selectionStart -= this.differenceInLengthBetweenFirstLineOfEachBlock(originalBlock, block);
         selectionEnd += block.length - originalBlock.length;
 
         // make the input with the modified block and save it to state
@@ -121,10 +156,22 @@ class InputBox extends Component {
         return lines.join("\n");
     }
 
-    countNumberOfLinesInBlock(block) {
+    removeTabsFromEveryLineInBlock(block) {
         let lines = block.split("\n");
-        return lines.length;
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i].startsWith("\t") || lines[i].startsWith(" ")) {
+                lines[i] = lines[i].substring(1, lines[i].length);
+            }
+        }
+        return lines.join("\n");
     }
+
+    differenceInLengthBetweenFirstLineOfEachBlock(firstBlock, secondBlock) {
+        let firstLineOfFirstBlock = firstBlock.split("\n")[0];
+        let firstLineOfSecondBlock = secondBlock.split("\n")[0];
+        return Math.abs(firstLineOfFirstBlock.length - firstLineOfSecondBlock.length);
+    }
+
 }
 
 const mapStateToProps = state => {

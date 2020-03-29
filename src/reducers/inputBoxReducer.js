@@ -10,7 +10,9 @@ function inputBoxReducer(state = {}, action) {
             });
         case SET_SHIFT_HELD:
             return Object.assign({}, state, {
-                shiftHeld: action.payload.shiftHeld
+                shiftHeld: action.payload.shiftHeld,
+                selectionStart: action.payload.selectionStart,
+                selectionEnd: action.payload.selectionEnd
             });
         default:
             return state;

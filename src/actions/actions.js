@@ -9,11 +9,13 @@ export const inputTextChange = (input, selectionStart, selectionEnd) => ({
     }
 });
 
-export const setShiftHeld = (shiftHeld) => {
+export const setShiftHeld = (shiftHeld, selectionStart, selectionEnd) => {
     return ({
         type: SET_SHIFT_HELD,
         payload: {
-            shiftHeld: shiftHeld
+            shiftHeld: shiftHeld,
+            selectionStart: selectionStart,
+            selectionEnd: selectionEnd
         }
     });
 };
