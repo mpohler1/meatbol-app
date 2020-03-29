@@ -5,7 +5,7 @@ import {interpretText} from "../service/webServerService";
 
 class InterpretButton extends Component {
 
-    handleOnClick = (input) => {
+    handleOnClick(input) {
         this.props.interpretRequest();
         return interpretText(input).then(([response, json]) => {
             if (response.status === 200) {
