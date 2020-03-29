@@ -1,4 +1,4 @@
-import {INPUT_TEXT_CHANGE, SET_SHIFT_HELD} from "./actionTypes";
+import {INPUT_TEXT_CHANGE, INTERPRET_ERROR, INTERPRET_REQUEST, INTERPRET_SUCCESS, SET_SHIFT_HELD} from "./actionTypes";
 
 export const inputTextChange = (input, selectionStart, selectionEnd) => ({
     type: INPUT_TEXT_CHANGE,
@@ -18,4 +18,25 @@ export const setShiftHeld = (shiftHeld, selectionStart, selectionEnd) => {
             selectionEnd: selectionEnd
         }
     });
+};
+
+export const interpretRequest = () => {
+    return ({
+        type: INTERPRET_REQUEST
+    });
+};
+
+export const interpretSuccess = (output) => {
+    return {
+        type: INTERPRET_SUCCESS,
+        payload: {
+            output: output
+        }
+    }
+};
+
+export const interpretError = () => {
+    return {
+        type: INTERPRET_ERROR
+    }
 };

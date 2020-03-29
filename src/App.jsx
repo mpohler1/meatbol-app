@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import InputBox from "./components/InputBox";
 import OutputBox from "./components/OutputBox";
 import 'bootstrap/dist/css/bootstrap.css';
+import InterpretButton from "./components/InterpretButton";
 
 class App extends Component {
 
@@ -16,8 +17,7 @@ class App extends Component {
                 <div className="row m-1">
                     <div className="col-lg m-1">
                         <InputBox />
-                        {/*<button className="btn btn-primary"*/}
-                        {/*        onClick={this.props.onInterpretButton}>Interpret</button>*/}
+                        <InterpretButton />
                     </div>
                     <div className="col-lg m-1">
                         <OutputBox />

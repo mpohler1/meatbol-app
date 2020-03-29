@@ -171,7 +171,6 @@ class InputBox extends Component {
         let firstLineOfSecondBlock = secondBlock.split("\n")[0];
         return Math.abs(firstLineOfFirstBlock.length - firstLineOfSecondBlock.length);
     }
-
 }
 
 const mapStateToProps = state => {
