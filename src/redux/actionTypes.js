@@ -1,0 +1,2 @@
+export const INPUT_TEXT_CHANGE = "INPUT_TEXT_CHANGE";
+export const SET_SHIFT_HELD = "SET_SHIFT_HELD";
