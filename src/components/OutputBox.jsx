@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
 
 class OutputBox extends Component {
 
@@ -18,4 +19,10 @@ class OutputBox extends Component {
     }
 }
 
-export default OutputBox;
+const mapStateToProps = state => {
+    return {
+        output: state.interpretButton.output
+    }
+};
+
+export default connect(mapStateToProps)(OutputBox);
