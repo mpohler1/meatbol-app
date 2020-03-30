@@ -1,0 +1,43 @@
+print("Binary Search Example\n");
+
+Int sortedArray[] = 0, 3, 6, 9, 11, 23, 45, 88, 100, 111, 123, 143, 152, 167, 199, 204;
+Int target = 123;
+Int index;
+
+print("Sorted Array: [", sortedArray, "] ");
+print("Target:", target):
+print();
+
+Int low = 0;
+Int high = ELEM(sortedArray)-1;
+while low <= high:
+
+	// For printing chunks, unrelated to binary search
+	Int elements = high-low+1;
+	Int chunk[elements];
+	for i = 0 to elements:
+		chunk[i] = sortedArray[low+i];
+	endfor;
+	// For printing chunks, unrelated to binary search
+
+	// Binary Search below
+	Int mid = (low + high) / 2;
+
+	print("Searching chunk [", chunk, "] Mid =", sortedArray[mid]);
+
+	if sortedArray[mid] == target:
+		print();
+		print(target "was found in chunk" chunk);
+		index = mid;
+		break;
+	endif;
+
+	if target < sortedArray[mid]:
+		high = mid - 1;
+	else:
+		low = mid + 1;
+	endif;
+
+endwhile;
+
+print("The index of", target, "was", mid);
