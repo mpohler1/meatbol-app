@@ -1,4 +1,11 @@
-import {INPUT_TEXT_CHANGE, INTERPRET_ERROR, INTERPRET_REQUEST, INTERPRET_SUCCESS, SET_SHIFT_HELD} from "./actionTypes";
+import {
+    INPUT_TEXT_CHANGE,
+    INTERPRET_ERROR,
+    INTERPRET_REQUEST,
+    INTERPRET_SUCCESS,
+    SET_MENU_VISIBLE,
+    SET_SHIFT_HELD
+} from "./actionTypes";
 
 export const inputTextChange = (input, selectionStart, selectionEnd) => ({
     type: INPUT_TEXT_CHANGE,
@@ -38,5 +45,14 @@ export const interpretSuccess = (output) => {
 export const interpretError = () => {
     return {
         type: INTERPRET_ERROR
+    }
+};
+
+export const setMenuVisible = (menuVisible) => {
+    return {
+        type: SET_MENU_VISIBLE,
+        payload: {
+            menuVisible: menuVisible
+        }
     }
 };
