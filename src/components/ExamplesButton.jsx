@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {setMenuVisible} from "../actions/actions";
+import {inputTextChange, setMenuVisible} from "../actions/actions";
+import {bubbleSortExampleText} from "../resources/bubbleSort";
+import {binarySearchExampleText} from "../resources/binarySearch";
 
 class ExamplesButton extends Component {
 
@@ -19,6 +21,14 @@ class ExamplesButton extends Component {
         this.props.setMenuVisible(false);
     }
 
+    handleExample(exampleText) {
+        this.props.inputTextChange(
+            exampleText,
+            0,
+            0
+        );
+    }
+
     render() {
         return (
             <div className="dropup">
@@ -29,16 +39,22 @@ class ExamplesButton extends Component {
                         aria-expanded="false"
                         onClick={() => this.handleButtonClick()}
                         onBlur={event => this.handleOnBlur(event)}>
-                    Show Me An Example!
+                    Load An Example!
                 </button>
                 {
                     this.props.menuVisible &&
                     (
                         <div className="dropdown-menu show"
                              aria-labelledby="dropdownMenuButton">
-                            <button className="btn dropdown-item"> Bubble Sort </button>
+                            <button className="btn dropdown-item"
+                                    onClick={() => this.handleExample(bubbleSortExampleText)}>
+                                Bubble Sort
+                            </button>
                             <div className="dropdown-divider" />
-                            <button className="btn dropdown-item"> Binary Search </button>
+                            <button className="btn dropdown-item"
+                                    onClick={() => this.handleExample(binarySearchExampleText)}>
+                                Binary Search
+                            </button>
                         </div>
                     )
                 }
@@ -53,4 +69,7 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { setMenuVisible })(ExamplesButton);
+export default connect(mapStateToProps, {
+    setMenuVisible,
+    inputTextChange
+})(ExamplesButton);
