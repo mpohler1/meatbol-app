@@ -49,13 +49,6 @@ class InputBox extends Component {
         }
     }
 
-    componentDidUpdate = () => {
-        // This is to determine the selection after selectionTab and shiftTab actions
-        // JSX TextAreas do not have selectionStart and selectionEnd as properties
-        let inputBoxTextArea = document.getElementById("inputBoxTextArea");
-        inputBoxTextArea.setSelectionRange(this.props.selectionStart, this.props.selectionEnd);
-    };
-
     render() {
         return (
             <div className="form-group">
@@ -67,7 +60,8 @@ class InputBox extends Component {
                           value={this.props.input}
                           onKeyDown={(event) => this.handleKeyDown(event)}
                           onKeyUp={(event) => this.handleKeyUp(event)}
-                          onChange={(event) => this.handleInputTextChange(event)}/>
+                          onChange={(event) => this.handleInputTextChange(event)}
+                          ref={input => input && input.setSelectionRange(this.props.selectionStart, this.props.selectionEnd)}/>
             </div>
         );
     }
