@@ -36,8 +36,9 @@ class ExamplesButton extends Component {
                     (
                         <div className="dropdown-menu show"
                              aria-labelledby="dropdownMenuButton">
-                            <li className="dropdown-item"> Bubble Sort </li>
-                            <li className="dropdown-item"> Binary Search </li>
+                            <button className="btn dropdown-item"> Bubble Sort </button>
+                            <div className="dropdown-divider" />
+                            <button className="btn dropdown-item"> Binary Search </button>
                         </div>
                     )
                 }
