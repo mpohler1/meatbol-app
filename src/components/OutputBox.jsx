@@ -3,10 +3,6 @@ import {connect} from "react-redux";
 
 class OutputBox extends Component {
 
-    componentDidUpdate= () => {
-
-    };
-
     render() {
         return (
             <div className="form-group">
