@@ -21,10 +21,10 @@ class App extends Component {
                         <InputBox />
                         <div className="row">
                             <div className="ml-3">
-                                <InterpretButton />
+                                <ExamplesButton />
                             </div>
                             <div className="ml-3">
-                                <ExamplesButton />
+                                <InterpretButton />
                             </div>
                         </div>
                     </div>
