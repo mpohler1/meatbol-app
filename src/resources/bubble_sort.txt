@@ -1,0 +1,21 @@
+print("Bubble Sort Example\n");
+
+Int array[] = 99, 55, 24, 67, 39, 84;
+print("Unsorted: [", array, "] \n");
+
+for i = 0 to ELEM(array)-1:      
+
+	for j = 0 to ELEM(array)-i-1:  
+
+		if array[j] > array[j+1]:  
+			Int temp = array[j];
+			array[j] = array[j+1];
+			array[j+1] = temp;
+			print("Swapped", array[j+1], "with", array[j], " => [", array, "] ");
+		endif;
+
+	endfor;
+
+endfor;
+
+print("\nSorted: [", array, "] ");

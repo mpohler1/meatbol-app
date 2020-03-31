@@ -4,6 +4,7 @@ import OutputBox from "./components/OutputBox";
 import 'bootstrap/dist/css/bootstrap.css';
 import InterpretButton from "./components/InterpretButton";
 import './App.css';
+import ExamplesButton from "./components/ExamplesButton";
 
 class App extends Component {
 
@@ -18,7 +19,14 @@ class App extends Component {
                 <div className="row m-1">
                     <div className="col-lg m-1">
                         <InputBox />
-                        <InterpretButton />
+                        <div className="row">
+                            <div className="ml-3">
+                                <ExamplesButton />
+                            </div>
+                            <div className="ml-3">
+                                <InterpretButton />
+                            </div>
+                        </div>
                     </div>
                     <div className="col-lg m-1">
                         <OutputBox />
