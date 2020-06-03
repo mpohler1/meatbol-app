@@ -1,5 +1,5 @@
 export function interpretText(text) {
-    const webServerEndpoint = "http://104.58.132.91:8080/interpret/text";
+    const webServerEndpoint = "https://api.masonpohler.com:5000/interpret/text";
     const headers = {
         'Content-Type': 'application/json'
     };
