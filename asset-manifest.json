@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/meatbol-app/static/css/main.f976b346.chunk.css",
+    "main.js": "/meatbol-app/static/js/main.fad28122.chunk.js",
+    "main.js.map": "/meatbol-app/static/js/main.fad28122.chunk.js.map",
+    "runtime-main.js": "/meatbol-app/static/js/runtime-main.c84720ed.js",
+    "runtime-main.js.map": "/meatbol-app/static/js/runtime-main.c84720ed.js.map",
+    "static/css/2.89f067aa.chunk.css": "/meatbol-app/static/css/2.89f067aa.chunk.css",
+    "static/js/2.f780ab13.chunk.js": "/meatbol-app/static/js/2.f780ab13.chunk.js",
+    "static/js/2.f780ab13.chunk.js.map": "/meatbol-app/static/js/2.f780ab13.chunk.js.map",
+    "index.html": "/meatbol-app/index.html",
+    "precache-manifest.ed0e04b418d15c7c4141316207fd2a17.js": "/meatbol-app/precache-manifest.ed0e04b418d15c7c4141316207fd2a17.js",
+    "service-worker.js": "/meatbol-app/service-worker.js",
+    "static/css/2.89f067aa.chunk.css.map": "/meatbol-app/static/css/2.89f067aa.chunk.css.map",
+    "static/css/main.f976b346.chunk.css.map": "/meatbol-app/static/css/main.f976b346.chunk.css.map",
+    "static/js/2.f780ab13.chunk.js.LICENSE.txt": "/meatbol-app/static/js/2.f780ab13.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c84720ed.js",
+    "static/css/2.89f067aa.chunk.css",
+    "static/js/2.f780ab13.chunk.js",
+    "static/css/main.f976b346.chunk.css",
+    "static/js/main.fad28122.chunk.js"
+  ]
+}

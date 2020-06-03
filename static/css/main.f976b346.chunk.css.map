@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AACA,SACI,6BACJ,CAGA,oCACI,SACI,8BACJ,CACJ","file":"main.f976b346.chunk.css","sourcesContent":["/* non-desktop */\r\n.console {\r\n    min-height: calc(85vh - 180px);\r\n}\r\n\r\n/* desktop */\r\n@media screen and (min-width: 640px) {\r\n    .console {\r\n        min-height: calc(100vh - 180px);\r\n    }\r\n}\r\n"]}
