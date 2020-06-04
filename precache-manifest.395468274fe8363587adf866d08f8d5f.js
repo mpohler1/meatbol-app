@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "463c8c11d0efee7dc166b62fbef85373",
+    "revision": "56bafb286ba805e86a31e8bb327a1bb8",
     "url": "/meatbol-app/index.html"
   },
   {
