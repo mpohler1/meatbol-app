@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/meatbol-app/precache-manifest.395468274fe8363587adf866d08f8d5f.js"
+  "/meatbol-app/precache-manifest.da912df30d4795037b839c168a59345c.js"
 );
 
 self.addEventListener('message', (event) => {
